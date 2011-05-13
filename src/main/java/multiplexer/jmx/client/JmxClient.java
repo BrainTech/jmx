@@ -63,10 +63,15 @@ public class JmxClient {
 	private static final Logger logger = LoggerFactory
 		.getLogger(JmxClient.class);
 
+	public static final int QUERY_RESPONSE_QUEUE_SIZE = 32768;
+	public static final int MESSAGE_QUEUE_SIZE = 32768;
+
 	protected final ConnectionsManager connectionsManager;
 
-	final private ConcurrentMap<Long, BlockingQueue<IncomingMessageData>> queryResponses = new ConcurrentHashMap<Long, BlockingQueue<IncomingMessageData>>();
-	final private BlockingQueue<IncomingMessageData> messageQueue = new LinkedBlockingQueue<IncomingMessageData>();
+	final private ConcurrentMap<Long, BlockingQueue<IncomingMessageData>> queryResponses
+	    = new ConcurrentHashMap<Long, BlockingQueue<IncomingMessageData>>();
+	final private BlockingQueue<IncomingMessageData> messageQueue
+	    = new LinkedBlockingQueue<IncomingMessageData>(MESSAGE_QUEUE_SIZE);
 
 	/**
 	 * Creates a new instance of a specified type ({@code instanceType}). Sets
@@ -350,7 +355,8 @@ public class JmxClient {
 		final int messageType, long timeout, List<Long> queryMessageIds)
 		throws OperationFailedException, NoPeerForTypeException {
 
-		final BlockingQueue<IncomingMessageData> queryQueue = new LinkedBlockingQueue<IncomingMessageData>();
+		final BlockingQueue<IncomingMessageData> queryQueue
+		    = new LinkedBlockingQueue<IncomingMessageData>(QUERY_RESPONSE_QUEUE_SIZE);
 		MultiplexerMessage queryMessage = createMessage(message, messageType);
 		boolean phase1DeliveryError = false;
 		boolean phase3DeliveryError = false;
