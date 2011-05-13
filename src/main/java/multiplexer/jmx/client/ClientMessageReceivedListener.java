@@ -21,10 +21,15 @@ import java.util.concurrent.ConcurrentMap;
 import multiplexer.jmx.internal.MessageReceivedListener;
 import multiplexer.protocol.Protocol.MultiplexerMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Piotr Findeisen
  */
 public class ClientMessageReceivedListener implements MessageReceivedListener {
+	private static final Logger log
+	    = LoggerFactory.getLogger(ClientMessageReceivedListener.class);
 	
 	final private ConcurrentMap<Long, BlockingQueue<IncomingMessageData>> queryResponses;
 	final private BlockingQueue<IncomingMessageData> messageQueue;
@@ -37,17 +42,17 @@ public class ClientMessageReceivedListener implements MessageReceivedListener {
 		this.messageQueue = messageQueue;
 	}
 
+	private static int _log_count = 0;
+
 	public void onMessageReceived(MultiplexerMessage message,
 		Connection connection) {
 		long id = message.getReferences();
 		IncomingMessageData msg = new IncomingMessageData(message,
 			connection);
-		BlockingQueue<IncomingMessageData> queryQueue = queryResponses
-			.get(id);
-		if (queryQueue == null) {
-			messageQueue.add(msg);
-		} else {
-			queryQueue.add(msg);
-		}
+		BlockingQueue<IncomingMessageData> queryQueue = queryResponses.get(id);
+		if(queryQueue == null)
+			queryQueue = messageQueue;
+		if(!queryQueue.offer(msg) && _log_count++ == 0)
+			log.info("message dropped: {}", message);
 	}
 }
