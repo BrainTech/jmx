@@ -16,7 +16,12 @@
     <repository>
       <id>google-maven-repository</id>
       <name>Google Maven Repository</name>
-      <url>http://google-maven-repository.googlecode.com/svn/repository/</url>
+      <url>http://google-maven-repository.googlecode.com/svn/repository</url>
+    </repository>
+
+    <repository>
+      <id>jboss-deprecated-repository</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/deprecated</url>
     </repository>
   </repositories>
 
