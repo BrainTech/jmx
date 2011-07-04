@@ -196,7 +196,7 @@ public class ConnectionsManager implements MultiplexerProtocolListener {
 	public synchronized ChannelFuture asyncConnect(final SocketAddress address,
 		final long reconnectTime, final TimeUnit reconnectTimeUnit) {
 
-		logger.debug("{} connecting to {}", this, address);
+		logger.info("{} connecting to {}", this, address);
 		// TODO send THROUGH_ALL/THROUGH_ALL in case of no connections should
 		// also try to reconnect immediately
 		// TODO send via(Connection) should try to reconnect to the same
