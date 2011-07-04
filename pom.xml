@@ -25,6 +25,13 @@
     </repository>
   </repositories>
 
+  <distributionManagement>
+    <repository>
+      <id>signalml.org</id>
+      <url>scpexe://escher.fuw.edu.pl/home/srv/www/signalml-site/maven/repository</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>com.google.protobuf</groupId>
@@ -130,6 +137,14 @@
       </plugin>
 
     </plugins>
+
+    <extensions>
+      <extension>
+	<groupId>org.apache.maven.wagon</groupId>
+	<artifactId>wagon-ssh-external</artifactId>
+	<version>1.0-beta-6</version>
+      </extension>
+    </extensions>
   </build>
 
 </project>
