@@ -1,0 +1,34 @@
+Source: jmx
+Section: java
+Priority: extra
+Maintainer: Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl>
+Build-Depends: debhelper (>= 8.0.0),
+               maven-debian-helper,
+               libmaven-antrun-plugin-java,
+               maven2,
+               protobuf-compiler
+Build-Depends-Indep:
+               libnetty-java (>= 3.2.3.Final),
+               libargs4j-java,
+               libfreemarker-java,
+               libgoogle-collections-java (>= 1.0),
+               libprotobuf-java,
+               libslf4j-java,
+               libtrove-java,
+               junit4
+Standards-Version: 3.9.2
+Vcs-Git: git://escher.fuw.edu.pl/git/jmx
+Vcs-Browser: http://escher.fuw.edu.pl/git/jmx
+
+Package: libjmx-java
+Architecture: all
+Depends: ${misc:Depends},
+               libnetty-java,
+               libargs4j-java,
+               libfreemarker-java,
+               libgoogle-collections-java (>= 1.0),
+               libprotobuf-java,
+               libslf4j-java,
+               libtrove-java,
+               junit4
+Description: Message multiplexer written in java
