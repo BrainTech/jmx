@@ -1,7 +1,7 @@
 Source: jmx
 Section: java
 Priority: extra
-Maintainer: Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl>
+Maintainer: Karol Auguštin <karol@augustin.pl>
 Build-Depends: debhelper (>= 8.0.0),
                maven-debian-helper,
                libmaven-antrun-plugin-java,
@@ -17,8 +17,8 @@ Build-Depends-Indep:
                libtrove-java,
                junit4
 Standards-Version: 3.9.2
-Vcs-Git: git://escher.fuw.edu.pl/git/jmx
-Vcs-Browser: http://escher.fuw.edu.pl/git/jmx
+Vcs-Git: git://git.braintech.pl/jmx.git
+Vcs-Browser: http://git.braintech.pl/jmx.git
 
 Package: libjmx-java
 Architecture: all
