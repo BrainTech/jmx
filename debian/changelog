@@ -1,4 +1,4 @@
-jmx (0.9.1-2) unstable; urgency=low
+jmx (0.9.1.0-2) unstable; urgency=low
 
   * Rebuild with openjdk-7 as default-jdk.
   * Change source format to 3.0 (quilt).
