@@ -1,0 +1,12 @@
+jmx (0.9.1.0-2) unstable; urgency=low
+
+  * Rebuild with openjdk-7 as default-jdk.
+  * Change source format to 3.0 (quilt).
+
+ -- Karol Auguštin <karol@augustin.pl>  Sun, 06 Oct 2013 11:52:26 +0200
+
+jmx (0.9.1) unstable; urgency=low
+
+  * Initial packaging
+
+ -- Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl>  Tue, 04 Oct 2011 12:55:44 +0200

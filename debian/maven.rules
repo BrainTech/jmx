@@ -1,0 +1,2 @@
+# there's more than one version in debian, so junit-debian.pom is not available
+junit junit jar s/4\..*/4.x/ * *
