@@ -2,7 +2,7 @@
 <project name="JMX" default="all" basedir=".">
 
   <!-- version -->
-  <property name="version" value="0.9" />
+  <property name="version" value="0.9.2" />
 
   <property name="src" location="src" />
   <property name="examples.src" location="examples" />
@@ -35,13 +35,13 @@
 
   <path id="project.tools.path">
     <pathelement location="${build.dir}" />
-    <pathelement location="${libs}/protobuf-java-2.1.0.jar" />
+    <pathelement location="${libs}/protobuf-java-2.6.1.jar" />
     <pathelement location="${libs}/args4j-2.0.10.jar" />
     <pathelement location="${libs}/freemarker-2.3.15.jar" />
   </path>
 
   <filelist id="project.jar.dependencies" dir="${basedir}">
-    <file name="${libs}/protobuf-java-2.1.0.jar" />
+    <file name="${libs}/protobuf-java-2.6.1.jar" />
     <file name="${libs}/netty-3.1.0.GA.jar" />
     <file name="${libs}/google-collect-1.0-rc2.jar" />
     <file name="${libs}/trove-2.0.4.jar" />
